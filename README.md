@@ -1,6 +1,34 @@
 ---
 license: mit
 library_name: transformers
+language:
+- aa
+- az
+- fa
+- es
+- af
+- ak
+metrics:
+- accuracy
+- super_glue
+- bleu
+- bertscore
+- brier_score
+- cer
+base_model:
+- deepseek-ai/DeepSeek-R1
+- hexgrad/Kokoro-82M
+new_version: deepseek-ai/DeepSeek-R1
+tags:
+- code
+- biology
+- chemistry
+- legal
+- music
+- art
+- climate
+- medical
+- text-generation-inference
 ---
 # DeepSeek-R1
 <!-- markdownlint-disable first-line-h1 -->
