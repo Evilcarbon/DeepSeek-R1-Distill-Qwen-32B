@@ -1,6 +1,16 @@
 ---
 license: mit
 library_name: transformers
+datasets:
+- fka/awesome-chatgpt-prompts
+language:
+- aa
+metrics:
+- accuracy
+- code_eval
+base_model:
+- deepseek-ai/DeepSeek-R1
+new_version: deepseek-ai/DeepSeek-R1
 ---
 # DeepSeek-R1
 <!-- markdownlint-disable first-line-h1 -->
