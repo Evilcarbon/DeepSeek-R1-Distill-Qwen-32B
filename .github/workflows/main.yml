@@ -18,12 +18,12 @@ jobs:
       # Step 2: Clone the Hugging Face Repository
       - name: Clone Hugging Face Repo
         run: |
-          git clone --mirror https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-32B huggingface
+          git clone --mirror https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-32B qwen
       # Step 3: Push to GitHub
       - name: Push to GitHub
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          cd huggingface
-          git remote set-url --push origin https://$GH_TOKEN@github.com/Evilcarbon/DeepSeek-R1-Distill-Qwen-32B.git
+          cd qwen
+          git remote set-url --push origin https://$GH_TOKEN@github.com/Evilcarbon/DeepSeek-R1-Distill-Qwen-32B
           git push --mirror
