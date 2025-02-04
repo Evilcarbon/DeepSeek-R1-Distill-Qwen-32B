@@ -1,0 +1,29 @@
+name: Sync Hugging Face Repository Distill DeepSeek Qwen 32B
+
+on:
+  schedule:
+    # Runs the workflow daily at midnight
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Allows manual triggering of the workflow
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Set up Git global configuration
+      - name: Set up Git
+        run: |
+          git config --global user.name "Evilcarbon"
+          git config --global user.email "evilcarbon@hotmail.com"
+      # Step 2: Clone the Hugging Face Repository
+      - name: Clone Hugging Face Repo
+        run: |
+          git clone --mirror https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-32B huggingface
+      # Step 3: Push to GitHub
+      - name: Push to GitHub
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          cd huggingface
+          git remote set-url --push origin https://$GH_TOKEN@github.com/Evilcarbon/DeepSeek-R1-Distill-Qwen-32B.git
+          git push --mirror
